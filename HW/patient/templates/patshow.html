@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Doctors' List</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+	<body>
+
+		<h2>Patients' List</h2>
+
+	<table>
+		<tr>
+			<th>Patient ID</th>
+			<th>Email ID</th>
+			<th>Patient Name</th>
+			<th>Patient Contact</th>
+			<th>Prescrition</th>
+			<th>Actions</th>
+		</tr>
+		{% for patient in patients %}
+		<tr>
+			<td>{{ patient.id }}</td>
+			<td>{{ patient.pmail }}</td>
+			<td>{{ patient.pname }}</td>
+			<td>{{ patient.pcontact }}</td>
+			<td>{{ patient.ppres }}</td>
+			<td><a href="/edit/{{ patient.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+				<a href="/delete/{{ patient.id }}">Delete</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+	<br>
+	<br>
+<center><a href="{% url 'patregister' %}" class="btn btn-primary">Add New Record</a></center>
+</body>
+</html>

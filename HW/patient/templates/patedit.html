@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Update Details</title>
+{% load static %}
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+a {
+  color: dodgerblue;
+}
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+</style>
+</head>
+<body>
+
+<form method="POST" class="post-form" action="{% url 'docupdate' %}">
+{% csrf_token %}
+  <div class="container">
+    <h1><center>Update</center></h1>
+    <p><center>Please fill in this form to update your details.</center></p>
+    <hr>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" name="demail" required>
+
+    <label for="name"><b>Name</b></label>
+    <input type="text" name="dname" required>
+    
+    <label for="contact"><b>Contact Number</b></label>
+    <input type="text" name="dcontact" required>
+
+    <hr>
+    <button type="submit" class="registerbtn">Update</button>
+  </div>
+  
+  
+  <div id="message">
+  <h3>Password must contain the following:</h3>
+  <p id="letter" class="invalid"><b>At least one lowercase.</b></p>
+  <p id="capital" class="invalid"><b>At least one uppercase.</b></p>
+  <p id="number" class="invalid"><b>At least one number.</b></p>
+  <p id="length" class="invalid">A Minimum of <b>8 characters</b></p>
+</div>
+			
+  <script type="text/javascript">
+  var myInput = document.getElementById("psw");
+  var letter = document.getElementById("letter");
+  var capital = document.getElementById("capital");
+  var number = document.getElementById("number");
+  var length = document.getElementById("length");
+  
+  myInput.onfocus = function() {
+    document.getElementById("message").style.display = "block";
+  }
+
+  myInput.onblur = function() {
+    document.getElementById("message").style.display = "none";
+  }
+
+  myInput.onkeyup = function() 
+  {
+    var lowerCaseLetters = /[a-z]/g;
+    if(myInput.value.match(lowerCaseLetters)) {  
+      letter.classList.remove("invalid");
+      letter.classList.add("valid");
+    } else {
+      letter.classList.remove("valid");
+      letter.classList.add("invalid");
+    }
+    
+    // Validate capital letters
+    var upperCaseLetters = /[A-Z]/g;
+    if(myInput.value.match(upperCaseLetters)) {  
+      capital.classList.remove("invalid");
+      capital.classList.add("valid");
+    } else {
+      capital.classList.remove("valid");
+      capital.classList.add("invalid");
+    }
+
+    // Validate numbers
+    var numbers = /[0-9]/g;
+    if(myInput.value.match(numbers)) {  
+      number.classList.remove("invalid");
+      number.classList.add("valid");
+    } else {
+      number.classList.remove("valid");
+      number.classList.add("invalid");
+    }
+    
+    if(myInput.value.length >= 8) {
+      length.classList.remove("invalid");
+      length.classList.add("valid");
+    } else {
+      length.classList.remove("valid");
+      length.classList.add("invalid");
+    }
+    	
+  }
+  
+  </script>
+</form>
+
+</body>
+</html>

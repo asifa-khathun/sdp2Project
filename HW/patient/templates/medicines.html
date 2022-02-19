@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  // Hide submenus
+$('#body-row .collapse').collapse('hide'); 
+
+// Collapse/Expand icon
+$('#collapse-icon').addClass('fa-angle-double-left'); 
+
+// Collapse click
+$('[data-toggle=sidebar-colapse]').click(function() {
+    SidebarCollapse();
+});
+
+function SidebarCollapse () {
+    $('.menu-collapsed').toggleClass('d-none');
+    $('.sidebar-submenu').toggleClass('d-none');
+    $('.submenu-icon').toggleClass('d-none');
+    $('#sidebar-container').toggleClass('sidebar-expanded sidebar-collapsed');
+    
+    // Treating d-flex/d-none on separators with title
+    var SeparatorTitle = $('.sidebar-separator-title');
+    if ( SeparatorTitle.hasClass('d-flex') ) {
+        SeparatorTitle.removeClass('d-flex');
+    } else {
+        SeparatorTitle.addClass('d-flex');
+    }
+    
+    // Collapse/Expand icon
+    $('#collapse-icon').toggleClass('fa-angle-double-left fa-angle-double-right');
+}
+</script>
+<title>MEDICINES</title>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.navbar-main{
+    background-color: indigo;
+}
+
+}
+</style>
+</head>
+<body>
+<div class="fluid-container mb-4">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-main">
+            <a class="navbar-brand" href="#">
+                
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <span class="glyphicon glyphicon-home" style="font-size:40px;color:red"></span>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><h6 style="font-size:30px;">Homepage </h6></a>
+                    </li>
+                </ul>
+                <div class="float-right">
+                <form class="form-inline my-2 my-lg-0" onsubmit=searchItem()>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" pattern="^[A-Za-z0-9]+$">
+                    <button class="btn btn-danger my-2 my-sm-0" type="submit" align="">Search</button>
+                </form>
+              </div>
+            </div>
+        </nav>
+    </div>
+
+<div class="row">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="col-md-2.7 d-flex align-items-stretch">
+              <div class="card border-info" >
+                 <div align="center">
+                  <br>
+                  <img src="{% static 'images/coldact.jpg' %}" height="364" width="300">
+                  <br><br>
+                <h2><b>Coldact</b></h2>
+                <h4><i class="fa fa-inr"></i> 128.0</h4>
+                    <button class="btn btn-info btn-lg btn-block">Buy</button>
+                  </div>
+              </div>
+            </div>
+
+            
+
+            <div class="col-md-3 d-flex align-items-stretch">
+              <div class="card border-info">
+                <div align="center">
+                <img src="{% static 'images/crocin.jpg' %}" height="403" width="350" >
+                  <h2><b>Crocin</b></h2>
+                <h4><i class="fa fa-inr"></i> 45.0</h4>
+
+                  <button class="btn btn-info btn-lg btn-block">Buy</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3-4 d-flex align-items-stretch">
+              <div class="card border-info">
+                <div align="center">
+                <img src="{% static 'images/crocincoldandflu.jpg' %}" height="403" width="360" >
+                  <h2><b>Crocin Cold and Flu</b></h2>
+                <h4><i class="fa fa-inr"></i> 54.83</h4>
+                  <button class="btn btn-info btn-lg btn-block">Buy</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 d-flex align-items-stretch">
+              <div class="card border-info">
+                <div align="center">
+                <img src="{% static 'images/paracetamol.jpg' %}" height="400" width="350" >
+                <br>  
+                  <h2><b>Paracetamol</b></h2>
+                <h4><i class="fa fa-inr"></i> 23.0</h4>
+                  <p><button class="btn btn-info btn-lg btn-block">Buy</button></p>
+                </div>
+              </div>
+            </div>
+
+
+</div>
+
+<div class="row">
+  <br><br>
+</div>  
+
+<div class="row">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="col-md-2.7 d-flex align-items-stretch">
+              <div class="card border-info">
+                 <div align="center">
+                  <br>
+                  <img src="{% static 'images/combiflam.jpg' %}" height="360" width="300">
+                  <br><br>
+                <h2><b>Combiflam</b></h2>
+                <h4><i class="fa fa-inr"></i> 38.1</h4>
+                <button class="btn btn-info btn-lg btn-block">Buy</button>
+                  </div>
+              </div>
+            </div>
+
+            
+
+            <div class="col-md-3 d-flex align-items-stretch">
+              <div class="card border-info">
+                <div align="center">
+                <img src="{% static 'images/dexamethasone.jpg' %}" height="400" width="350" >
+                  <h2><b>Dexamethasone</b></h2>
+                <h4><i class="fa fa-inr"></i> 18.0</h4>
+                <button class="btn btn-info btn-lg btn-block">Buy</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3-4 d-flex align-items-stretch">
+              <div class="card border-info">
+                <div align="center">
+                  
+                <img src="{% static 'images/digene.jpg' %}" height="400" width="360" >
+                  <h2><b>Digene</b></h2>
+                <h4><i class="fa fa-inr"></i> 15.0</h4>
+                  <button class="btn btn-info btn-lg btn-block">Buy</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 d-flex align-items-stretch">
+              <div class="card border-info">
+                <div align="center">
+                  <br>
+                <img src="{% static 'images/favipiravir.jpg' %}" height="380" width="350" >
+                <br>
+                  <h2><b>Favipiravir</b></h2>
+                <h4><i class="fa fa-inr"></i> 144.0</h4>
+                <button class="btn btn-info btn-lg btn-block">Buy</button>
+                </div>
+              </div>
+            </div>
+</div>
+
+
+<div class="row">
+  <br><br>
+</div>
+
+<div class="row">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="col-md-2.8 d-flex align-items-stretch">
+              <div class="card border-info">
+                 <div align="center">
+                  <br>
+                  <img src="{% static 'images/Gelusil.jpg' %}" height="360" width="300">
+                  <br><br>
+                <h2><b>Gelusil</b></h2>
+                <h4><i class="fa fa-inr"></i> 74.0</h4>
+                <button class="btn btn-info btn-lg btn-block">Buy</button>
+                  </div>
+              </div>
+            </div>
+
+            
+
+            <div class="col-md-3 d-flex align-items-stretch">
+              <div class="card border-info">
+                <div align="center">
+                <img src="{% static 'images/levocetrizine.jpg' %}" height="400" width="350" >
+                  <h2><b>Levocetrizine</b></h2>
+                <h4><i class="fa fa-inr"></i> 61.0</h4>
+                  <button class="btn btn-info btn-lg btn-block">Buy</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3-4 d-flex align-items-stretch">
+              <div class="card border-info">
+                <div align="center">
+                  
+                <img src="{% static 'images/remdesivir.jpg' %}" height="400" width="360" >
+                  <h2><b>Remdesivir</b></h2>
+                <h4><i class="fa fa-inr"></i> 5000</h4>
+                <button class="btn btn-info btn-lg btn-block">Buy</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3 d-flex align-items-stretch">
+              <div class="card border-info">
+                <div align="center">
+                <img src="{% static 'images/saridon.jpg' %}" height="400" width="350" >
+                  <h2><b>Saridon</b></h2>
+                <h4><i class="fa fa-inr"></i> 26.5</h4>
+                <button class="btn btn-info btn-lg btn-block">Buy</button>
+                </div>
+              </div>
+            </div>
+</div>
+
+</body>
+</html>

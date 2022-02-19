@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title style="text-align: center">Doctors' List</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Doctors' List</h2>
+
+<table>
+	<tr>
+		<th>Doctor ID</th>
+		<th>Email ID</th>
+		<th>Doctor Name</th>
+		<th>Specialization</th>
+		<th>Doctor Contact</th>
+		<th>On Duty</th>
+		<th>Actions</th>
+    </tr>
+    {% for doctor in doctors %}
+    <tr>
+  		<td>{{ doctor.id }}</td>
+		<td>{{ doctor.demail }}</td>
+		<td>{{ doctor.dname }}</td>
+		<td>{{ doctor.dspec }}</td>
+		<td>{{ doctor.dcontact }}</td>
+		<td>{{ doctor.donduty }}</td>
+		<td><a href="/docedit/{{ doctor.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+			<a href="/docdelete/{{ doctor.id }}">Delete</a></td>
+    </tr><br>
+  	{% endfor %}
+</table>
+<br>
+<br>
+<center><a href={% url "docregister" %} class="btn btn-primary">Add New Record</a></center>
+
+</body>
+</html>

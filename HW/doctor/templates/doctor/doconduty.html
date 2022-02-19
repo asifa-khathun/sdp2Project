@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Doctors' on Duty</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/styles.css' %}/>
+	</head>
+	<body>
+	<table class="table table-striped table-bordered table-sm">
+		<thead class="thead-dark">
+		<tr>
+			<th>Email ID</th>
+			<th>Doctor Name</th>
+			<th>Doctor Contact</th>
+			<th>On Duty</th>
+			<th>Actions</th>
+		</tr>
+		</thead>
+		<tbody>
+			{% for doctor in doctors %}
+			<tr>
+				<td>{{ doctor.id }}</td>
+				<td>{{ doctor.dmail }}</td>
+				<td>{{ doctor.dname }}</td>
+				<td>{{ doctor.dcontact }}</td>
+				<td>{{ doctor.donduty }}</td>
+				<td><a href="/edit/{{ employee.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+					<a href="/delete/{{ employee.id }}">Delete</a></td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<br>
+	<br>
+<center><a href="/doctor/register.html" class="btn btn-primary">Add New Record</a></center>
+</body>
+</html>

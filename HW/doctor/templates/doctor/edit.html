@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Edit Details</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/styles.css' %}/>
+</head>
+<body>
+	<form method="POST" class="post-form" action="/update/{{doctor.dmail}}">
+		{% csrf_token %}
+		<div class="container">
+		<br>
+		<div class="form-group row">
+		<label class="col-sm-1 col-form-label></label>
+			<div classs="col-sm-4">
+				<h3>Update Details</h3>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label class="col-sm-2 col-from-label">Doctor Email:</label>
+			<div class="col-sm-4">
+				<input type="text" name="dmail" id="dmail" required maxlength="50" value="{{doctor.dmail}}"/>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-sm-2 col-from-label">Doctor Name:</label>
+			<div class="col-sm-4">
+				<input type="text" name="dname" id="dname" required maxlength="100" value="{{doctor.dname}}"/>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-sm-2 col-from-label">Doctor Expereince:</label>
+			<div class="col-sm-4">
+				<input type="text" name="dexperience" id="dexperience" required maxlength="10" value="{{doctor.dexperience}}"/>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-sm-2 col-from-label">Doctor Contact:</label>
+			<div class="col-sm-4">
+				<input type="text" name="dcontact" id="dcontact" required maxlength="15" value="{{doctor.dcontact}}"/>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-sm-2 col-from-label">On Duty:</label>
+			<div class="col-sm-4">
+				<input type="text" name="donduty" id="donduty" required maxlength="5" value="{{doctor.donduty}}"/>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-sm-2 col-from-label"></label>
+			<div class="col-sm-4">
+				<button type="submit" class="btn btn-success">Update</button> 
+			</div>
+		</div>
+		</div>
+	</form>
+</body>
+</html>

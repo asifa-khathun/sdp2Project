@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+  // Hide submenus
+$('#body-row .collapse').collapse('hide'); 
+
+// Collapse/Expand icon
+$('#collapse-icon').addClass('fa-angle-double-left'); 
+
+// Collapse click
+$('[data-toggle=sidebar-colapse]').click(function() {
+    SidebarCollapse();
+});
+
+function SidebarCollapse () {
+    $('.menu-collapsed').toggleClass('d-none');
+    $('.sidebar-submenu').toggleClass('d-none');
+    $('.submenu-icon').toggleClass('d-none');
+    $('#sidebar-container').toggleClass('sidebar-expanded sidebar-collapsed');
+    
+    // Treating d-flex/d-none on separators with title
+    var SeparatorTitle = $('.sidebar-separator-title');
+    if ( SeparatorTitle.hasClass('d-flex') ) {
+        SeparatorTitle.removeClass('d-flex');
+    } else {
+        SeparatorTitle.addClass('d-flex');
+    }
+    
+    // Collapse/Expand icon
+    $('#collapse-icon').toggleClass('fa-angle-double-left fa-angle-double-right');
+}
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient HOMEPAGE</title>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: lavender;
+}
+.navbar-main{
+    background-color: indigo;
+}
+
+#body-row {
+    margin-left:0;
+    margin-right:0;
+}
+#sidebar-container {
+    min-height: 100vh;   
+    background-color: #333;
+    padding: 0;
+}
+
+/* Sidebar sizes when expanded and expanded */
+.sidebar-expanded {
+    width: 230px;
+}
+.sidebar-collapsed {
+    width: 60px;
+}
+
+/* Menu item*/
+#sidebar-container .list-group a {
+    height: 55px;
+    color: white;
+}
+
+/* Submenu item*/
+#sidebar-container .list-group .sidebar-submenu a {
+    height: 45px;
+    padding-left: 30px;
+}
+.sidebar-submenu {
+    font-size: 0.9rem;
+}
+
+/* Separators */
+.sidebar-separator-title {
+    background-color: #333;
+    height: 35px;
+}
+.sidebar-separator {
+    background-color: #333;
+    height: 25px;
+}
+.logo-separator {
+    background-color: #333;    
+    height: 60px;
+}
+
+/* Closed submenu icon */
+#sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
+  content: " \f0d7";
+  font-family: FontAwesome;
+  display: inline;
+  text-align: right;
+  padding-left: 10px;
+}
+/* Opened submenu icon */
+#sidebar-container .list-group .list-group-item[aria-expanded="true"] .submenu-icon::after {
+  content: " \f0da";
+  font-family: FontAwesome;
+  display: inline;
+  text-align: right;
+  padding-left: 10px;
+}
+
+
+}
+</style>
+</head>
+<body>
+  
+<div class="fluid-container mb-4">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-main">
+            <a class="navbar-brand" href="#">
+                
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <span class="glyphicon glyphicon-home" style="font-size:40px;color:red"></span>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><h6 style="font-size:37px;">HEALTHYWAVE </h6></a>
+                    </li>
+                </ul>
+                <div class="float-right">
+                <form class="form-inline my-2 my-lg-0" onsubmit=searchItem()>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" pattern="^[A-Za-z0-9]+$">
+                    <button class="btn btn-danger my-2 my-sm-0" type="submit" align="">Search</button>
+                </form>
+
+              </div>
+            </div>
+        </nav>
+    </div>
+
+<!-- Bootstrap NavBar -->
+
+
+
+<!-- Bootstrap row -->
+<div class="row" id="body-row">
+    <!-- Sidebar -->
+    <div id="sidebar-container" class="sidebar-expanded d-none d-md-block"><!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+        <!-- Bootstrap List Group -->
+        <ul class="list-group">
+            <!-- Separator with title -->
+            
+            <!-- /END Separator -->
+            <!-- Menu with submenu -->
+            <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fa-dashboard fa-fw mr-3"></span> 
+                    <span class="menu-collapsed">Dashboard</span>
+                </div>
+            </a>
+            <!-- Submenu content -->
+           
+            <a href="/patedit/1/" class="bg-dark list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fa-user fa-fw mr-3"></span>
+                    <span class="menu-collapsed">Profile</span>    
+                </div>
+            </a>
+            <!-- Submenu content -->
+            <a href="{% url 'services' %}" class="bg-dark list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fa-medkit fa-fw mr-3"></span>
+                    <span class="menu-collapsed">Our Services</span>    
+                </div>
+            </a>       
+            
+            <a href="{% url 'uploadpres' %}" class="bg-dark list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fa-upload fa-fw mr-3"></span>
+                    <span class="menu-collapsed">Upload Prescription</span>    
+                </div>
+            </a>
+
+            <a href="{% url 'viewppres' %}" class="bg-dark list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fa-file-pdf-o fa-fw mr-3"></span>
+                    <span class="menu-collapsed">View Prescription</span>    
+                </div>
+            </a>
+
+            <a href="{% url 'medicines' %}" class="bg-dark list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <span class="fa fa-plus-square fa-fw mr-3"></span>
+                    <span class="menu-collapsed">Buy Medicines</span>    
+                </div>
+            </a>
+            
+            <a href="/patdelete/4/" class="bg-dark list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <i class='fas fa-user-times'></i>
+                    <span class="menu-collapsed">&nbsp;&nbsp;&nbsp;Discharge</span>
+                </div>
+            </a>
+            <a href="{% url 'patlogin' %}" class="bg-dark list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-start align-items-center">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <span class="menu-collapsed">&nbsp;&nbsp;&nbsp;Logout</span>
+                </div>
+            </a>
+            <!-- Separator without title -->
+            
+            
+        </ul><!-- List Group END-->
+    </div><!-- sidebar-container END -->
+
+    <!-- MAIN -->
+    <div class="col">
+        
+        <h1>
+            Welcome!!!!
+        </h1>
+        
+       <img src="{% static 'images/doctor.jpg' %}" height="450" width="1240">
+       <br>
+       <br>
+
+        <div class="card">
+            <div class="card-body">
+                <b><center>"Appreciate every doctor out there who save us"</center></b>
+            </div>
+        </div>
+
+         
+
+
+    </div><!-- Main Col END -->
+    
+</div><!-- body-row END -->
+
+</body>
+</html>
